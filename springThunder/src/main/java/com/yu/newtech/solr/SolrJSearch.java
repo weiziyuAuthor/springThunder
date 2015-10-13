@@ -1,5 +1,9 @@
 package com.yu.newtech.solr;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
@@ -7,10 +11,13 @@ import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
+import org.apache.solr.common.SolrInputDocument;
 
 public class SolrJSearch {
 
 	private static final String SOLR_URL = "http://localhost:8983/solr";
+	
+//	private static final String SOLR_URL = "http://10.10.32.41:8983/solr/gettingstarted_shard1_replica1";
 	
 	public SolrServer getSolrServer() {
 		return new HttpSolrServer(SOLR_URL);
@@ -42,9 +49,38 @@ public class SolrJSearch {
 		}
 	}
 	
+	public void addIndex() {
+		
+//		server.deleteByQuery("*:*");// delete everything!
+		
+		SolrInputDocument sid1 = new SolrInputDocument();
+		sid1.addField("id", "1");
+		sid1.addField("name", "weizy");
+		
+		SolrInputDocument sid2 = new SolrInputDocument();
+		sid2.addField("id", "2");
+		sid2.addField("name", "mugengyuan");
+		
+		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+		docs.add(sid1);
+		docs.add(sid2);
+		
+		try {
+			this.getSolrServer().add(docs);
+			this.getSolrServer().commit();
+		} catch (SolrServerException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		SolrJSearch solrJSearch = new SolrJSearch();
-		String queryString = "contrast";
-		solrJSearch.search(queryString);
+//		String queryString = "Solr";
+//		solrJSearch.search(queryString);
+		
+		solrJSearch.addIndex();
 	}
 }
