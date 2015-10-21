@@ -15,7 +15,9 @@ import org.apache.solr.common.SolrInputDocument;
 
 public class SolrJSearch {
 
-	private static final String SOLR_URL = "http://localhost:8983/solr";
+//	private static final String SOLR_URL = "http://localhost:8983/solr";
+	
+	private static final String SOLR_URL = "http://localhost:8080/solr/connection1";
 	
 //	private static final String SOLR_URL = "http://10.10.32.41:8983/solr/gettingstarted_shard1_replica1";
 	
@@ -53,17 +55,22 @@ public class SolrJSearch {
 		
 //		server.deleteByQuery("*:*");// delete everything!
 		
-		SolrInputDocument sid1 = new SolrInputDocument();
-		sid1.addField("id", "1");
-		sid1.addField("name", "weizy");
+//		SolrInputDocument sid1 = new SolrInputDocument();
+//		sid1.addField("id", "1");
+//		sid1.addField("name", "weizy");
+//		
+//		SolrInputDocument sid2 = new SolrInputDocument();
+//		sid2.addField("id", "2");
+//		sid2.addField("name", "mugengyuan");
 		
-		SolrInputDocument sid2 = new SolrInputDocument();
-		sid2.addField("id", "2");
-		sid2.addField("name", "mugengyuan");
+		SolrInputDocument sid3 = new SolrInputDocument();
+		sid3.addField("id", "3");
+		sid3.addField("name", "Î¤×ÓÓî");
 		
 		Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
-		docs.add(sid1);
-		docs.add(sid2);
+//		docs.add(sid1);
+//		docs.add(sid2);
+		docs.add(sid3);
 		
 		try {
 			this.getSolrServer().add(docs);
@@ -76,11 +83,22 @@ public class SolrJSearch {
 		
 	}
 	
+	public void deleteAllIndex() {
+		try {
+			this.getSolrServer().deleteByQuery("*:*");
+		} catch (SolrServerException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args) {
 		SolrJSearch solrJSearch = new SolrJSearch();
 //		String queryString = "Solr";
 //		solrJSearch.search(queryString);
 		
 		solrJSearch.addIndex();
+//		solrJSearch.deleteAllIndex();
 	}
 }
