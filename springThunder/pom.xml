@@ -117,5 +117,12 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- netty 2015.12.10  -->
+<dependency>
+	<groupId>io.netty</groupId>
+	<artifactId>netty-all</artifactId>
+	<version>4.0.12.Final</version>
+</dependency>
+		
 	</dependencies>
 </project>
