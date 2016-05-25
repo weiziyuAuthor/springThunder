@@ -1,11 +1,11 @@
 package com.yu.basis.corejava.generic;
 
 /**
- * ·ºĞÍÀà
- * 
+ * æ³›å‹ç±»
+ *
  * @author ziyu.wei@tendcloud.com
- * 
- *         2015Äê12ÔÂ12ÈÕ ÉÏÎç11:51:33
+ *
+ *         2015å¹´12æœˆ12æ—¥ ä¸Šåˆ11:51:33
  */
 public class Pair<T> {
 
