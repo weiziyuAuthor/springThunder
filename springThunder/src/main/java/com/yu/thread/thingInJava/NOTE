@@ -1,0 +1,24 @@
+临界区
+	有时，只是希望防止多个线程同时访问方法内部的部分代码而不是防止访问整个方法。通过这种方式分离出来的代码段被称为临界区(critical section), 它也使用
+	synchronized关键字建立。 这里，synchronized被用来指定某个对象，此对象的锁被用来对花括号内的代码进行同步控制。 这也被称为同步控制块；在进入此段
+	代码前， 必须得到syncObject对象的锁。 如果其他线程已经得到这个锁，那么就得等到锁被释放后，才能进行临界区
+	synchorinzed (syncObject) {
+		// this code can be accessed by only one task at a time 
+	}
+	
+中断
+	Thread类包含interrupt()方法， 因此你可以终止被阻塞的任务，这个方法将设置线程的中断状态。如果一个线程已经被阻塞，或者试图执行一个阻塞操作，那么
+设置这个线程中断状态将抛出InterruptedException。 当抛出该异常或者改任务调用Thread.interrupted()时， 中断状态将被复位
+
+线程之间的协作
+	调用sleep()的时候并没有释放锁，调用yield()也属于这种情况。当一个任务在方法里遇到了对wait()的调用的时候，线程的执行被挂起，对象上的锁被释放。
+因为wait()将释放锁，这就意味着另一个任务可以获得这个锁，因此在该对象中的其他synchronized方法可以在wait期间被调用。这一点很重要，因为这些其他的
+方法通常将会产生改变，而这种改变正式被挂起的任务重新唤醒所感兴趣的变化。
+
+对wait()而言
+1)在wait()期间对象锁是释放的
+2)可以通过notify(), notifyAll(),或者另时间到期，从wait()中恢复执行
+
+wait(), notify(),notifyAll()这些方法操作的锁是所有对象的一部分。只能在同步控制方法或同步控制块里调用wait(),notify()和notifyAll()
+(因为不用操作锁，所以sleep()可以在非同步方法里调用)。调用wait(),notify()和notifyAll()的任务在调用这些方法前必须"拥有"(获取)对象的锁。
+

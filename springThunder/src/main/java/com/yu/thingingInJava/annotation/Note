@@ -1,0 +1,23 @@
+@Target用来定义你的注解应用于什么地方(一个方法或者是一个域)
+	CONSTRUCTOR: 构造器的声明
+	FIELD: 域声明(包括enum实例)
+	LOCAL_VARIABLE: 局部变量声明
+	METHOD:方法声明
+	PACKAGE: 包声明
+	PARAMETER: 参数声明
+	TYPE: 类、接口(包括注解类型)或enum声明
+		
+@Rectetion定义该注解在哪一级别可用(SOURCE:源代码 、 CLASS:类文件、 RUNTIME:运行时)
+
+注解元素可用的类型
+	. 所有基本类型
+	. String
+	. Class
+	. enum
+	. Annotation
+	. 以上类型的数组
+	
+默认值限制
+	不用用null	
+
+注解不支持继承

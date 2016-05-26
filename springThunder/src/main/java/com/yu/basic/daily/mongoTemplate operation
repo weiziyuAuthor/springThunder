@@ -1,0 +1,35 @@
+	public void query(MongoTemplate mongoTemplate) {
+		org.springframework.data.mongodb.core.query.Query query = new org.springframework.data.mongodb.core.query.Query();
+//		query.query(org.springframework.data.mongodb.core.query.Criteria.where("vehicleType").is(23));
+		
+		// test = 
+//		query.addCriteria(org.springframework.data.mongodb.core.query.Criteria.where("vehicleType").is("23").and("length").is(10));
+		
+		// test >=
+//		query.addCriteria(org.springframework.data.mongodb.core.query.Criteria.where("length").gte(50));
+		
+		// test array
+//		query.addCriteria(org.springframework.data.mongodb.core.query.Criteria.where("areaCodes").is(1101));
+		
+		// test distance
+		query.addCriteria(new org.springframework.data.mongodb.core.query.Criteria().and("geometry").near(new Point(77.5055506405236, 7.0003317856808032)));
+		
+		// test sort (near function equals where sub condition)
+		org.springframework.data.domain.Sort.Order workingOrder 
+				= new org.springframework.data.domain.Sort.Order(Direction.ASC, "working");
+		query.with(new Sort(workingOrder));
+		
+		// test skip, by "skip" and "limit" function get collection
+//		query.skip(10);
+//		query.limit(20);
+		
+		
+		// test count, it's not related with skip and limit
+		long count = mongoTemplate.count(query, "vehicle_info");
+		
+		
+		List<com.sinoiov.pltp.find.vehicle.service.impl.Vehicle> list = mongoTemplate.find(query, com.sinoiov.pltp.find.vehicle.service.impl.Vehicle.class, "vehicle_info");
+		for (com.sinoiov.pltp.find.vehicle.service.impl.Vehicle v : list) {
+			System.out.println(v.toString());
+		}
+	}
