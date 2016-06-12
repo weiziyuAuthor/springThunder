@@ -1,11 +1,6 @@
 package com.u.spring.web.servlet;
 
-import java.io.IOException;
 import java.util.Locale;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;
@@ -15,15 +10,12 @@ import org.springframework.ui.context.ThemeSource;
 import org.springframework.ui.context.support.SimpleTheme;
 import org.springframework.ui.context.support.UiApplicationContextUtils;
 import org.springframework.web.context.support.StaticWebApplicationContext;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping;
-import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
-import org.springframework.web.servlet.mvc.Controller;
-import org.springframework.web.servlet.mvc.LastModified;
-import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.theme.AbstractThemeResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.XmlViewResolver;
+
+import com.u.spring.web.servlet.SimpleWebApplicationContext.DummyThemeSource;
 
 
 public class SimpleWebApplicationContext extends StaticWebApplicationContext {
@@ -35,7 +27,7 @@ public class SimpleWebApplicationContext extends StaticWebApplicationContext {
 		pvs.add("commandClass", "org.springframework.tests.sample.beans.TestBean");
 		pvs.add("formView", "form");
 
-		registerSingleton("/locale.do", LocaleChecker.class);
+    // registerSingleton("/locale.do", LocaleChecker.class);
 
 		addMessage("test", Locale.ENGLISH, "test message");
 		addMessage("test", Locale.CANADA, "Canadian & test message");
@@ -55,26 +47,27 @@ public class SimpleWebApplicationContext extends StaticWebApplicationContext {
 	}
 
 
-	public static class LocaleChecker implements Controller, LastModified {
-
-		public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			if (!(RequestContextUtils.getWebApplicationContext(request) instanceof SimpleWebApplicationContext)) {
-				throw new ServletException("Incorrect WebApplicationContext");
-			}
-			if (!(RequestContextUtils.getLocaleResolver(request) instanceof AcceptHeaderLocaleResolver)) {
-				throw new ServletException("Incorrect LocaleResolver");
-			}
-			if (!Locale.CANADA.equals(RequestContextUtils.getLocale(request))) {
-				throw new ServletException("Incorrect Locale");
-			}
-			return null;
-		}
-
-		public long getLastModified(HttpServletRequest request) {
-			return 98;
-		}
-	}
+  // public static class LocaleChecker implements Controller, LastModified {
+  //
+  // public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
+  // throws ServletException, IOException {
+  // if (!(RequestContextUtils.getWebApplicationContext(request) instanceof
+  // SimpleWebApplicationContext)) {
+  // throw new ServletException("Incorrect WebApplicationContext");
+  // }
+  // if (!(RequestContextUtils.getLocaleResolver(request) instanceof AcceptHeaderLocaleResolver)) {
+  // throw new ServletException("Incorrect LocaleResolver");
+  // }
+  // if (!Locale.CANADA.equals(RequestContextUtils.getLocale(request))) {
+  // throw new ServletException("Incorrect Locale");
+  // }
+  // return null;
+  // }
+  //
+  // public long getLastModified(HttpServletRequest request) {
+  // return 98;
+  // }
+  // }
 
 
 	public static class DummyThemeSource implements ThemeSource {

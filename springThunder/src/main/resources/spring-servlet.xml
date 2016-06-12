@@ -19,6 +19,9 @@
 
 	<!-- Spring MVC配置 -->
 	<context:annotation-config />
+	
+	<context:component-scan base-package="com.mvcflow.*" />
+	
 	<!--默认的mvc注解映射的支持 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters>
@@ -29,11 +32,16 @@
 						</list>
 					</property>
 			</bean>
-		
-<!-- 			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-					<property name="objectMapper" ref="baseMapper" ></property>
-			</bean> -->
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	
+	<mvc:default-servlet-handler />
+	
+		<!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 	
 </beans>
