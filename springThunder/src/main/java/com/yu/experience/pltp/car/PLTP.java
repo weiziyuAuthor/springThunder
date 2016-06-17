@@ -3,231 +3,159 @@ package com.yu.experience.pltp.car;
 
 
 /**
- * 
- * @author ziyu.wei
- * 2015Äê3ÔÂ14ÈÕ ÉÏÎç10:45:39
- * 
- * 
+ *
+ * @author ziyu.wei 2015å¹´3æœˆ14æ—¥ ä¸Šåˆ10:45:39
+ *
+ *
  */
 public class PLTP {
-	
-	/**
-	 * ÀûÓÃspring¶¨Òå×Ô¼ºµÄÅäÖÃÎÄ¼şÉ¨ÃèÆ÷
-	 * É¨ÃèbasePackageÏÂËùÓĞÒÔ@MyBatisRepository±êÊ¶µÄ ½Ó¿Ú
-	 */
-	private void myBatisRepository() {
-/*
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.sinoiov.pltp.find.vehicle.service.dao.mapper" />
-		<property name="annotationClass" value="com.sinoiov.pltp.find.vehicle.service.dao.mapper.MyBatisRepository" />
-	</bean>
-	
-	@Retention(RetentionPolicy.RUNTIME)
-	@Target(ElementType.TYPE)
-	@Documented
-	@Component
-	public @interface MyBatisRepository {
-		String value() default "";
-	}
-	
-	 
-	@MyBatisRepository
-	public interface AreaInfoMapper		
- */
-	}
-	
-	/**
-	 * ¶¨ÒåspringÅäÖÃÎÄ¼şÎ»ÖÃ
-	 */
-	private void mybatisXmlConfig() {
-/*
- * 
- * <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:/mybatis/mybatis-config.xml"></property>
-		<property name="mapperLocations">
-			<value>classpath*:com/sinoiov/pltp/find/vehicle/service/dao/mapper/xml/*.xml</value>
-		</property>
-	</bean> 		
- */
-	}
-	
-	/*
-	 * ¶¨ÒåÊÜ»·¾³Ó°ÏìÒ×±äµÄ±äÁ¿
-	 */
-	private void defineEnvConstant() {
-/*
- * 	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-		<property name="ignoreResourceNotFound" value="true" />
-		<property name="locations">
-			<list>
-				 <value>file:///${catalina.home}/etc/vehicle_service/application.properties</value>
-				 <value>classpath:/jdbc.properties</value>
-			</list>
-		</property>
-	</bean>		
- */
-	}
-	
-	/**
-	 * »·¾³ÅäÖÃ,²¢ÉèÖÃ»º´æÊ±¼ä
-	 */
-	private void readConfigHottly() {
-/*
-4.
- * <bean id="appConfigSource"
-		class="com.sinoiov.pltp.find.vehicle.service.common.ReloadableResourceBundle">
-		<property name="basenames">
-			<list>
-				<value>file:///${catalina.home}/etc/vehicle_service/constant</value>
-			</list>
-		</property>
-		<property name="cacheSeconds" value="3600"/>
-	</bean>		
- */
-	}
-	
-	/**
-	 * ¼ÓÔØÅäÖÃÎÄ¼ş£¬ÆäÖĞPropertiesÎª java.util.Properties
-	 */
-	private void loadPropertyByExtends() {
-/*
- * public class Configure extends Properties {
-	private static final long serialVersionUID = 1L;
 
-	private static Logger logger = LoggerFactory.getLogger(Configure.class);
+  /**
+   * åˆ©ç”¨springå®šä¹‰è‡ªå·±çš„é…ç½®æ–‡ä»¶æ‰«æå™¨ æ‰«æbasePackageä¸‹æ‰€æœ‰ä»¥@MyBatisRepositoryæ ‡è¯†çš„ æ¥å£
+   */
+  private void myBatisRepository() {
+    /*
+     * <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> <property name="basePackage"
+     * value="com.sinoiov.pltp.find.vehicle.service.dao.mapper" /> <property name="annotationClass"
+     * value="com.sinoiov.pltp.find.vehicle.service.dao.mapper.MyBatisRepository" /> </bean>
+     * 
+     * @Retention(RetentionPolicy.RUNTIME)
+     * 
+     * @Target(ElementType.TYPE)
+     * 
+     * @Documented
+     * 
+     * @Component public @interface MyBatisRepository { String value() default ""; }
+     * 
+     * 
+     * @MyBatisRepository public interface AreaInfoMapper
+     */
+  }
 
-	private static Configure instance = null;
+  /**
+   * å®šä¹‰springé…ç½®æ–‡ä»¶ä½ç½®
+   */
+  private void mybatisXmlConfig() {
+    /*
+     * 
+     * <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> <property
+     * name="dataSource" ref="dataSource" /> <property name="configLocation"
+     * value="classpath:/mybatis/mybatis-config.xml"></property> <property name="mapperLocations">
+     * <value>classpath*:com/sinoiov/pltp/find/vehicle/service/dao/mapper/xml/*.xml</value>
+     * </property> </bean>
+     */
+  }
 
-	private Configure() {
+  /*
+   * å®šä¹‰å—ç¯å¢ƒå½±å“æ˜“å˜çš„å˜é‡
+   */
+  private void defineEnvConstant() {
+    /*
+     * <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+     * <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+     * <property name="ignoreResourceNotFound" value="true" /> <property name="locations"> <list>
+     * <value>file:///${catalina.home}/etc/vehicle_service/application.properties</value>
+     * <value>classpath:/jdbc.properties</value> </list> </property> </bean>
+     */
+  }
 
-		try {
-			load(new FileInputStream(new File(System.getProperty("catalina.home") + "/etc/cargo/cargo.properties")));
-		} catch (Throwable e) {
-			logger.warn(e.getMessage(), e);
-		}
-	}
+  /**
+   * ç¯å¢ƒé…ç½®,å¹¶è®¾ç½®ç¼“å­˜æ—¶é—´
+   */
+  private void readConfigHottly() {
+    /*
+     * 4. <bean id="appConfigSource"
+     * class="com.sinoiov.pltp.find.vehicle.service.common.ReloadableResourceBundle"> <property
+     * name="basenames"> <list> <value>file:///${catalina.home}/etc/vehicle_service/constant</value>
+     * </list> </property> <property name="cacheSeconds" value="3600"/> </bean>
+     */
+  }
 
-	public static Configure getInstance() {
+  /**
+   * åŠ è½½é…ç½®æ–‡ä»¶ï¼Œå…¶ä¸­Propertiesä¸º java.util.Properties
+   */
+  private void loadPropertyByExtends() {
+    /*
+     * public class Configure extends Properties { private static final long serialVersionUID = 1L;
+     * 
+     * private static Logger logger = LoggerFactory.getLogger(Configure.class);
+     * 
+     * private static Configure instance = null;
+     * 
+     * private Configure() {
+     * 
+     * try { load(new FileInputStream(new File(System.getProperty("catalina.home") +
+     * "/etc/cargo/cargo.properties"))); } catch (Throwable e) { logger.warn(e.getMessage(), e); } }
+     * 
+     * public static Configure getInstance() {
+     * 
+     * if (instance == null) { instance = new Configure(); }
+     * 
+     * return instance; }
+     * 
+     * public static String getString(String key) { return getInstance().getProperty(key); }
+     * 
+     * public static String getString(String key, String defaultValue) { return
+     * getInstance().getProperty(key, defaultValue); }
+     * 
+     * public static int getInt(String key) {
+     * 
+     * try { return Integer.valueOf(getInstance().getProperty(key)); } catch (Throwable e) { }
+     * 
+     * return 0; }
+     * 
+     * public static int getInt(String key, int defaultValue) {
+     * 
+     * try { return Integer.valueOf(getInstance().getProperty(key, String.valueOf(defaultValue))); }
+     * catch (Throwable e) { }
+     * 
+     * return 0; } }
+     */
+  }
 
-		if (instance == null) {
-			instance = new Configure();
-		}
+  /**
+   * åˆ©ç”¨Spring aopæ§åˆ¶äº‹åŠ¡
+   */
+  private void aopSpringTransaction() {
+    /*
+     * <bean id="transactionManager"
+     * class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> <property
+     * name="dataSource" ref="dataSource" /> </bean>
+     * 
+     * <tx:advice id="txAdvice" transaction-manager="transactionManager"> <tx:attributes> <tx:method
+     * name="get*" propagation="SUPPORTS" read-only="true" /> <tx:method name="query*"
+     * propagation="SUPPORTS" read-only="true" /> <tx:method name="save*" propagation="SUPPORTS"
+     * read-only="true" /> <tx:method name="*" propagation="REQUIRED" read-only="false"
+     * rollback-for="Exception" /> </tx:attributes> </tx:advice>
+     * 
+     * <aop:config proxy-target-class="false"> <aop:pointcut id="txPointcut"
+     * expression="execution(* com.sinoiov.pltp.find.vehicle.service.logic..*(..))" /> <aop:advisor
+     * advice-ref="txAdvice" pointcut-ref="txPointcut" /> </aop:config>
+     */
+  }
 
-		return instance;
-	}
-
-	public static String getString(String key) {
-		return getInstance().getProperty(key);
-	}
-
-	public static String getString(String key, String defaultValue) {
-		return getInstance().getProperty(key, defaultValue);
-	}
-
-	public static int getInt(String key) {
-
-		try {
-			return Integer.valueOf(getInstance().getProperty(key));
-		} catch (Throwable e) {
-		}
-
-		return 0;
-	}
-
-	public static int getInt(String key, int defaultValue) {
-
-		try {
-			return Integer.valueOf(getInstance().getProperty(key, String.valueOf(defaultValue)));
-		} catch (Throwable e) {
-		}
-
-		return 0;
-	}
-} 		
- */
-	}
-	
-	/**
-	 * ÀûÓÃSpring aop¿ØÖÆÊÂÎñ
-	 */
-	private void aopSpringTransaction() {
-/*
- * <bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="query*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="save*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="*" propagation="REQUIRED" read-only="false"
-				rollback-for="Exception" />
-		</tx:attributes>
-	</tx:advice>
-
-	<aop:config proxy-target-class="false">
-		<aop:pointcut id="txPointcut"
-			expression="execution(* com.sinoiov.pltp.find.vehicle.service.logic..*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
-	</aop:config>		
- */
-	}
-	
-	private void why1() {
-/*
- //·ºĞÍ·½·¨
- public interface Main {
-	<T> T getBean();
-}
-
-//·ºĞÍÀà
-public interface Main<T> {
-	T getBean();
-} 	
-
-	
-	class ArrayAlg{
-		public static <T> T min(T[] a) {
-			if (a == null || a.length == 0) {
-				return null;
-			}
-			
-			T smallest = a[0];
-			for (int i=1; i<a.length; i++) {
-				if (smallest.compareTo(a[i]) > 0) {
-					smallest = a[i];
-				}
-			}
-			return smallest;
-		}
-	}
-	
-	·ÖÎö£º smallest ÀàĞÍÎªT , ÕâÒâÎ¶×ÅËü¿ÉÒÔÊÇÈÎºÎÒ»¸öÀàµÄ¶ÔÏó¡£ÒªÈ·ĞÅTËùÊôµÄÀàÓĞcompareTo·½·¨
-	´¦Àí·½Ê½£º public static <T extends Comparable> T min(T[] a) 
-	
-	
-//Í¨Åä·ûÀàĞÍ
-Pair<? extends Employee>
-±íÊ¾ÀàĞÍ²ÎÊıÊÇEmployeeµÄ×ÓÀà
-
-	//Í¨Åä·ûµÄ³¬ÀàĞÍÏŞ¶¨
-	public static void minmaxBonus(Manager[] a, Pair<? super Manager> result){
-		...
-	} 
-	
-	//ÎŞÏŞ¶¨Í¨Åä·û
-	Pair<?>
-	
-	
-	
-
-
-
- */
-	}
+  private void why1() {
+    /*
+     * //æ³›å‹æ–¹æ³• public interface Main { <T> T getBean(); }
+     * 
+     * //æ³›å‹ç±» public interface Main<T> { T getBean(); }
+     * 
+     * 
+     * class ArrayAlg{ public static <T> T min(T[] a) { if (a == null || a.length == 0) { return
+     * null; }
+     * 
+     * T smallest = a[0]; for (int i=1; i<a.length; i++) { if (smallest.compareTo(a[i]) > 0) {
+     * smallest = a[i]; } } return smallest; } }
+     * 
+     * åˆ†æï¼š smallest ç±»å‹ä¸ºT , è¿™æ„å‘³ç€å®ƒå¯ä»¥æ˜¯ä»»ä½•ä¸€ä¸ªç±»çš„å¯¹è±¡ã€‚è¦ç¡®ä¿¡Tæ‰€å±çš„ç±»æœ‰compareToæ–¹æ³• å¤„ç†æ–¹å¼ï¼š public static <T extends
+     * Comparable> T min(T[] a)
+     * 
+     * 
+     * //é€šé…ç¬¦ç±»å‹ Pair<? extends Employee> è¡¨ç¤ºç±»å‹å‚æ•°æ˜¯Employeeçš„å­ç±»
+     * 
+     * //é€šé…ç¬¦çš„è¶…ç±»å‹é™å®š public static void minmaxBonus(Manager[] a, Pair<? super Manager> result){ ... }
+     * 
+     * //æ— é™å®šé€šé…ç¬¦ Pair<?>
+     */
+  }
 }
