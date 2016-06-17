@@ -24,6 +24,14 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+/**
+ *
+ * @author ziyu.wei@tendcloud.com
+ * 
+ *         2016年6月17日 下午3:36:00
+ *
+ *         测试并发的好思路
+ */
 public class ConcurrentBeanFactoryTests {
 
   private static final Log logger = LogFactory.getLog(ConcurrentBeanFactoryTests.class);
