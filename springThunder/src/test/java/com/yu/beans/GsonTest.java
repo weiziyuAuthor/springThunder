@@ -15,17 +15,20 @@ public class GsonTest {
 
   public static void main(String[] args) {
     Map<String, List<String>> map = new HashMap<String, List<String>>();
+    // Map<String, Object> map = new HashMap<String, Object>();
 
     List<String> list = new ArrayList<String>();
     list.add("a");
     list.add("b");
 
     map.put("list", list);
+    // map.put("name", "ziyu.wei");
 
     Gson gson = new Gson();
     String result = gson.toJson(map);
 
     JSONObject obj = new JSONObject();
+    System.out.println(map.toString());
     System.out.println(obj.fromObject(map).toString());
     System.out.println(result);
 
