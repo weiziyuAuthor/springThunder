@@ -1,4 +1,4 @@
-package com.yu.beans;
+package com.yu;
 
 import java.util.ArrayList;
 import java.util.HashMap;
