@@ -32,6 +32,8 @@ public class GsonTest {
     Map<String, List<String>> _map = gson.fromJson(result, Map.class);
     System.out.println(_map.get("list"));
 
+    // Student studentG = gson.fromJson(result, Student.class);
+
     Map<String, List<String>> _map1 =
         gson.fromJson(result, new TypeToken<Map<String, List<String>>>() {}.getType());
     System.out.println(_map.get("list"));
