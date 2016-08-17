@@ -14,6 +14,11 @@ public class Test {
 
     System.out.println("韦子宇".hashCode());
     System.out.println("韦子宇1".hashCode());
+
+
+    long a = 3;
+    long b = 5;
+    System.out.println((float) a / b);
   }
 
 }

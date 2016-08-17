@@ -10,6 +10,20 @@ import com.google.gson.reflect.TypeToken;
 
 public class GsonTest {
 
+  // JsonObject ageJsonObject = new JsonObject();
+  // Gson gson = new Gson();
+  // JsonParser parser = new JsonParser();
+  // ageJsonObject.add("key", parser.parse(gson.toJson(ageKeyList)));
+  // ageJsonObject.add("value", parser.parse(gson.toJson(ageValueList)));
+  // returnJsonObject.add("age", ageJsonObject);
+
+
+  private static void addProperty() {
+    JsonObject obj = new JsonObject();
+    obj.addProperty("k", "one");
+    obj.addProperty("v", 1);
+    System.out.println(obj.toString());
+  }
   private static void getJsonValue() {
     JsonObject parent = new JsonObject();
 
@@ -53,6 +67,8 @@ public class GsonTest {
     };
 
     getJsonValue();
+
+    addProperty();
   }
 
 }

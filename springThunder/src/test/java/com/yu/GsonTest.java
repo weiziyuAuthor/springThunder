@@ -37,6 +37,9 @@ public class GsonTest {
     Map<String, List<String>> _map1 =
         gson.fromJson(result, new TypeToken<Map<String, List<String>>>() {}.getType());
     System.out.println(_map.get("list"));
+
+
+    System.out.println(((float) 1 / 5) * 100);
   }
 
 }
