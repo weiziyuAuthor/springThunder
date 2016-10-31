@@ -1,5 +1,7 @@
 package com.gson;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -45,6 +47,22 @@ public class GsonTest {
 
 
   }
+
+  public static void listStringTest() {
+    Gson gson = new Gson();
+    List<String> list = new ArrayList<String>();
+    list.add("a");
+    list.add("b");
+
+    String result = gson.toJson(list);
+    System.out.println(result);
+
+    List<String> convertedList = gson.fromJson(result, new TypeToken<List<String>>() {}.getType());
+    for (String s : convertedList) {
+      System.out.println("s: " + s);
+    }
+  }
+
   public static void main(String[] args) {
     JsonObject parent = new JsonObject();
 
@@ -69,6 +87,8 @@ public class GsonTest {
     getJsonValue();
 
     addProperty();
+
+    listStringTest();
   }
 
 }
