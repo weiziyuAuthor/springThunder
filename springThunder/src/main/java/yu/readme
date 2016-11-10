@@ -1,0 +1,18 @@
+各种建立对象实例的手段
+1)new
+	Something obj = new Something();
+2)
+	class Something{
+		...
+		public Something createClone(){
+			Something obj = null;
+			try{
+				obj = (Somethig)clone();
+			}catch(CloneNotSupportException e){
+				e.printStackTrace();
+			}
+		}
+	}
+3)
+	假设有一个Something类的对象实例someobj，则以下面的表达式可另建一个Something类的对象实例
+	someobj.getClass().newInstance();

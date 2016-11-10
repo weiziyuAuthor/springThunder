@@ -9,9 +9,9 @@ public class ModifyContainer {
 
   public static void main(String[] args) {
     Set<Person> set = new HashSet<Person>();
-    Person p1 = new Person("name1", "p1", 22);
+    Person p1 = new Person("name1", "p1", 21);
     Person p2 = new Person("name2", "p2", 22);
-    Person p3 = new Person("name3", "p3", 22);
+    Person p3 = new Person("name3", "p3", 23);
 
     set.add(p1);
     set.add(p2);
